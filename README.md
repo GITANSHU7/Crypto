@@ -8,8 +8,6 @@ Crypto Tracker is an application that allows users to track the latest cryptocur
 
 - Real-time cryptocurrency prices
 - Market capitalization and volume data
-- Historical price charts
-- Price alerts for selected cryptocurrencies
 
 
 ## Deployment link https://crypto-fchb.vercel.app/
