@@ -1,0 +1,9 @@
+{
+    "crons": [
+        {
+           
+            "path":"./api/crypto/save",
+            "schedule": "*/5 * * * * *"
+        }
+    ]
+}
