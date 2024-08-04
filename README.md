@@ -11,6 +11,10 @@ Crypto Tracker is an application that allows users to track the latest cryptocur
 - Historical price charts
 - Price alerts for selected cryptocurrencies
 
+
+## Deployment link https://crypto-fchb.vercel.app/
+
+
 ## Prerequisites
 
 - Node.js v20.11.0
