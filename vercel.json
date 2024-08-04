@@ -2,7 +2,7 @@
     "crons": [
         {
            
-            "path":"./api/crypto/save",
+            "path":"/api/crypto/save",
             "schedule": "*/1 * * * *"
         }
     ]
