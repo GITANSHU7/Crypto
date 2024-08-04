@@ -4,13 +4,15 @@ import { setCoinData } from "@/lib/CoinData/coinDataSlice";
 import { TableTheme } from "@/Theme/TableTheme";
 import axios from "axios";
 import { Button, Table } from "flowbite-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { IoIosRefreshCircle } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch();
   const coins = useSelector((state: any) => state.coinDataSlice);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const fetchCoins = async () => {
     try {
@@ -50,17 +52,37 @@ export default function Home() {
   }, []);
 
   const handleLoadCoin = () => {
+    setIsButtonDisabled(true);
     saveCoins();
+    toast.success("Button disabled for 10 seconds");
+    setTimeout(() => {
+      setIsButtonDisabled(false);
+    }, 10000); // Disable button for 10 seconds
   };
 
   return (
     <div className="p-4">
-      <h1 className="my-10 ml-7 text-xl font-semibold">
+      <h1 className="my-10 ml-7 text-xl font-semibold dark:text-white">
+      Crypto List
+            <div className="float-right rtl:float-left">
+            <div className="flex space-x-2 rtl:space-x-reverse">
+                
+                <Button
+                  onClick={handleLoadCoin} disabled={isButtonDisabled}
+                >
+                  <IoIosRefreshCircle className="mr-2 h-5 w-5" />
+                 Refresh
+                </Button>
+             
+            </div>
+            </div>
+          </h1>
+      {/* <h1 className="my-10 ml-7 text-xl font-semibold">
         Crypto List
-        <div className="float-right rtl:float-left">
-          <Button onClick={() => {handleLoadCoin()}}>Refresh Data</Button>
-        </div>
-      </h1>
+        <Button color="grey" onClick={handleLoadCoin} disabled={isButtonDisabled}>
+        <IoIosRefreshCircle className="mr-2 h-5 w-5" /> Refresh Data
+          </Button>
+      </h1> */}
 
       <div className="overflow-x-auto p-4 ">
         <Table striped={true} theme={TableTheme}>

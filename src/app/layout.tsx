@@ -6,6 +6,7 @@ import StoreProvider from "./StoreProvider";
 import { Flowbite, ThemeModeScript } from "flowbite-react";
 import AppFooter from "@/components/AppFooter";
 import { Toaster } from "react-hot-toast";
+import HeadBanner from "@/components/HeadBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <body className="bg-neutral-200 text-neutral-800 dark:bg-neutral-900 dark:text-white">
           {" "}
           <Flowbite>
+            <HeadBanner />
             <Header />
             {children}
 
