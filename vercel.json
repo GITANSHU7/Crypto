@@ -3,7 +3,7 @@
         {
            
             "path":"./api/crypto/save",
-            "schedule": "*/5 * * * * *"
+            "schedule": "*/1 * * * *"
         }
     ]
 }
