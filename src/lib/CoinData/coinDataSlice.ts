@@ -1,36 +1,11 @@
-// import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
-// import { RootState } from "../store";
 
-// // create coin data slice
-// interface CoinDataState {
-//   coin: any | null;
-  
-// }
-
-// const initialState: CoinDataState = {
-//   coin: null,
-// };
-
-// export const coinDataSlice = createSlice({
-//   name: "coinData",
-//   initialState,
-//   reducers: {
-//     setCoinData: (state, action) => {
-//       state.coin = action.payload;
-//     },
-//   },
-// });
-
-// export const { setCoinData } = coinDataSlice.actions;
-
-// src/slices/coinDataSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 interface CoinDataState {
-  coins: any[];  // Array to store multiple coin data
-  total: number; // Total number of coins
-  success: boolean; // Status of the request
+  coins: any[];  
+  total: number; 
+  success: boolean;
 }
 
 const initialState: CoinDataState = {
@@ -53,10 +28,3 @@ export const coinDataSlice = createSlice({
 
 export const { setCoinData } = coinDataSlice.actions;
 
-
-
-// export const { setCoinData } = coinDataSlice.actions;
-
-// export const selectCoinData = (state: RootState) => state.coinData;
-
-// export default coinDataSlice.reducer;

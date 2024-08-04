@@ -1,9 +1,11 @@
 "use client";
 
 import { setCoinData } from "@/lib/CoinData/coinDataSlice";
+import { TableTheme } from "@/Theme/TableTheme";
 import axios from "axios";
 import { Button, Table } from "flowbite-react";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
@@ -36,23 +38,12 @@ export default function Home() {
     try {
       await axios.get("/api/crypto/save");
       fetchCoins();
+      toast.success("Data refreshed successfully");
     } catch (error: any) {
       console.error(error);
     }
   }
 
-  // const saveCoins = async () => {
-  //   try {
-  //     // Include query parameters in the POST request URL
-  //     const response = await axios.post("/api/crypto/save",);
-      
-  //     console.log("Save response:", response.data); // Log the response to ensure it’s successful
-  //     fetchCoins(); // Fetch updated data after saving
-  //   } catch (error: any) {
-  //     console.error("Error saving coins data:", error.response?.data || error.message); // Log detailed error
-  //   }
-  // };
-  
 
   useEffect(() => {
     fetchCoins();
@@ -64,16 +55,16 @@ export default function Home() {
 
   return (
     <div className="p-4">
-      <h1 className="my-10 ml-7 text-xl font-semibold dark:text-white">
+      <h1 className="my-10 ml-7 text-xl font-semibold">
         Crypto List
         <div className="float-right rtl:float-left">
           <Button onClick={() => {handleLoadCoin()}}>Refresh Data</Button>
         </div>
       </h1>
 
-      <div className="overflow-x-auto p-4">
-        <Table striped={true}>
-          <Table.Head>
+      <div className="overflow-x-auto p-4 ">
+        <Table striped={true} theme={TableTheme}>
+          <Table.Head className="dark:text-white">
             <Table.HeadCell>Image</Table.HeadCell>
             <Table.HeadCell>Name</Table.HeadCell>
             <Table.HeadCell>Symbol</Table.HeadCell>

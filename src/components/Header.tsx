@@ -2,27 +2,18 @@
 "use client";
 
 import Link from "next/link";
-import { Navbar } from "flowbite-react";
+import { DarkThemeToggle, Navbar } from "flowbite-react";
 
 const Header = () => {
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand as={Link} href="https://flowbite-react.com">
+    <Navbar fluid rounded className=" bg-neutral-800 dark:bg-slate-900 text-white">
+      <Navbar.Brand>
        
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
+        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Crypto Tracker </span>
       </Navbar.Brand>
-      <Navbar.Toggle />
-      {/* <Navbar.Collapse>
-        <Navbar.Link href="#" active>
-          Home
-        </Navbar.Link>
-        <Navbar.Link as={Link} href="#">
-          About
-        </Navbar.Link>
-        <Navbar.Link href="#">Services</Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Contact</Navbar.Link>
-      </Navbar.Collapse> */}
+      <div className="flex md:order-2">
+      <DarkThemeToggle />
+      </div>
     </Navbar>
   );
 }
